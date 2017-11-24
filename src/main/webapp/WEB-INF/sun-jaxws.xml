@@ -2,4 +2,5 @@
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
   <endpoint implementation="com.soapsoft.Service.SVR_UBICACION" name="SVR_UBICACION" url-pattern="/SVR_UBICACION"/>
   <endpoint implementation="com.soapsoft.Service.SVR_MATERIAPRIMA" name="SVR_MATERIAPRIMA" url-pattern="/SVR_MATERIAPRIMA"/>
+  <endpoint implementation="com.soapsoft.Service.SVR_PRODUCTOTERMINADO" name="SVR_PRODUCTOTERMINADO" url-pattern="/SVR_PRODUCTOTERMINADO"/>
 </endpoints>

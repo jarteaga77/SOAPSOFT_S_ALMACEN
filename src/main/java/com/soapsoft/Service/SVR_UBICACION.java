@@ -5,7 +5,6 @@
  */
 package com.soapsoft.Service;
 
-import com.soapsoft.Dao.TbUbicacionDao;
 import com.soapsoft.Dao.TbUbicacionDaoImpl;
 import com.soapsoft.Model.TbUbicacion;
 import java.util.Date;

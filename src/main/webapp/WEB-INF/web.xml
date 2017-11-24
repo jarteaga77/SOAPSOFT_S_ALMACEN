@@ -13,6 +13,16 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>SVR_PRODUCTOTERMINADO</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>SVR_ENTRADAMATERIAPRIMA</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SVR_UBICACION</servlet-name>
         <url-pattern>/SVR_UBICACION</url-pattern>
@@ -20,6 +30,14 @@
     <servlet-mapping>
         <servlet-name>SVR_MATERIAPRIMA</servlet-name>
         <url-pattern>/SVR_MATERIAPRIMA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SVR_PRODUCTOTERMINADO</servlet-name>
+        <url-pattern>/SVR_PRODUCTOTERMINADO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SVR_ENTRADAMATERIAPRIMA</servlet-name>
+        <url-pattern>/SVR_ENTRADAMATERIAPRIMA</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

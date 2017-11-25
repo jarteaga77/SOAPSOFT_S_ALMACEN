@@ -8,7 +8,9 @@ package com.soapsoft.Service;
 import com.soapsoft.Dao.TbProductoTerminadoDaoImpl;
 import com.soapsoft.Model.TbProductoTerminado;
 import com.soapsoft.Model.TbUbicacion;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -127,10 +129,20 @@ public class SVR_PRODUCTOTERMINADO {
         }
 
     } 
-    
-    
-    
-    
-    
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "consultar_productos")
+    public List<TbProductoTerminado> consultar_productos() {
+        
+        
+        TbProductoTerminadoDaoImpl dao=new TbProductoTerminadoDaoImpl();  
+        
+         return dao.fn_consultar_todos();
+         
+ 
+    }
     
 }

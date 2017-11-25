@@ -19,14 +19,7 @@ import javax.jws.WebParam;
 @WebService(serviceName = "SVR_ENTRADAMATERIAPRIMA")
 public class SVR_ENTRADAMATERIAPRIMA {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
-
+    
      /**
      * Web service operation
      

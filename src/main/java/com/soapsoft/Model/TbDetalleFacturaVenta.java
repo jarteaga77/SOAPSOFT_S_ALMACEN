@@ -1,5 +1,5 @@
 package com.soapsoft.Model;
-// Generated 21/11/2017 05:00:32 AM by Hibernate Tools 4.3.1
+// Generated 25/11/2017 12:56:23 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

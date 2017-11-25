@@ -54,6 +54,10 @@ public class TbDetalleSalidaMateriaPrima  implements java.io.Serializable {
        this.modificadoPor = modificadoPor;
        this.modificadoEn = modificadoEn;
     }
+    public TbDetalleSalidaMateriaPrima(int ID, TbSalidaMateriaPrima tbSalidaMateriaPrima, int cantidad, String creadoPor, java.sql.Date valueOf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
      @Id @GeneratedValue(strategy=IDENTITY)
 

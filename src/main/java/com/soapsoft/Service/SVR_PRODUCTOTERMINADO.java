@@ -8,7 +8,7 @@ package com.soapsoft.Service;
 import com.soapsoft.Dao.TbProductoTerminadoDaoImpl;
 import com.soapsoft.Model.TbProductoTerminado;
 import com.soapsoft.Model.TbUbicacion;
-import java.util.ArrayList;
+import com.soapsoft.util.Resultado;
 import java.util.Date;
 import java.util.List;
 import javax.jws.WebService;
@@ -117,6 +117,8 @@ public class SVR_PRODUCTOTERMINADO {
             obj.setModificadoPor(modificadoPor);
             obj.setModificadoEn(new Date());
             
+            dao.update(obj);
+            
             return "Se Actualizo Correctamente";
         }else
         {
@@ -143,6 +145,89 @@ public class SVR_PRODUCTOTERMINADO {
          return dao.fn_consultar_todos();
          
  
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "validar_stock_prod_terminado")
+    public Resultado validar_stock_prod_terminado(@WebParam(name = "ID") int ID, @WebParam(name = "cantidad") int cantidad) {
+        
+        int stock=0;
+        TbProductoTerminadoDaoImpl dao= new TbProductoTerminadoDaoImpl();
+        TbProductoTerminado obj=dao.findById(ID);
+        Resultado rest=new Resultado();
+        boolean estado=false;
+        String resultado="";
+        
+        if(obj !=null)
+        {
+            stock=obj.getStock();
+            
+            if(stock==0)
+            {
+                estado=false;
+                resultado="El Stock del producto esta en cero";
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+                
+            }
+            else if( stock < cantidad)
+            {
+                estado=false;
+                resultado="El Stock es menor que la cantidad solicitada Stock:" +  stock;
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+            }
+            else if(stock > cantidad)
+            {
+                estado=true;
+                resultado="Petición Aceptada";
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+            }
+        }else
+        
+                estado=false;
+                resultado="El producto no existe";
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+        
+        
+        
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "modificar_stock_prod_terminado")
+    public String modificar_stock_prod_terminado(@WebParam(name = "ID") int ID, @WebParam(name = "cantidad") int cantidad) {
+        
+        int stock=0;
+        int nuevostock=0;
+        TbProductoTerminadoDaoImpl dao= new TbProductoTerminadoDaoImpl();
+        TbProductoTerminado obj=dao.findById(ID);
+        
+        
+        
+        
+        if(obj !=null)
+        {
+            stock=obj.getStock();
+            nuevostock=stock - cantidad;
+            
+            obj.setStock(nuevostock);
+            dao.update(obj);
+            
+            return "Stock Actualizado";
+            
+        }
+        
+        return null;
     }
     
 }

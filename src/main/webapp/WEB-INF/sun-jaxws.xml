@@ -5,4 +5,5 @@
   <endpoint implementation="com.soapsoft.Service.SVR_PRODUCTOTERMINADO" name="SVR_PRODUCTOTERMINADO" url-pattern="/SVR_PRODUCTOTERMINADO"/>
   <endpoint implementation="com.soapsoft.Service.SVR_ENTRADAMATERIAPRIMA" name="SVR_ENTRADAMATERIAPRIMA" url-pattern="/SVR_ENTRADAMATERIAPRIMA"/>
   <endpoint implementation="com.soapsoft.Service.SRV_DETALLESALIDAPRODTERM" name="SRV_DETALLESALIDAPRODTERM" url-pattern="/SRV_DETALLESALIDAPRODTERM"/>
+  <endpoint implementation="com.soapsoft.Service.SVR_DETALLE_SALIDA_MATERIA_PRIMA" name="SVR_DETALLE_SALIDA_MATERIA_PRIMA" url-pattern="/SVR_DETALLE_SALIDA_MATERIA_PRIMA"/>
 </endpoints>

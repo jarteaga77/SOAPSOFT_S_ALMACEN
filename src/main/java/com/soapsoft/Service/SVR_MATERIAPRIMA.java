@@ -8,6 +8,7 @@ package com.soapsoft.Service;
 import com.soapsoft.Dao.TbMateriaPrimaDaoImpl;
 import com.soapsoft.Model.TbMateriaPrima;
 import com.soapsoft.Model.TbUbicacion;
+import com.soapsoft.util.Resultado;
 import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -127,4 +128,108 @@ public class SVR_MATERIAPRIMA {
         }
        
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "fn_validar_stock_mp")
+    public Resultado fn_validar_stock_mp(@WebParam(name = "ID") int ID, @WebParam(name = "cantidad") int cantidad) {
+         float stock=0;
+        TbMateriaPrimaDaoImpl dao= new TbMateriaPrimaDaoImpl();
+        TbMateriaPrima obj=dao.findById(ID);
+        Resultado rest=new Resultado();
+        boolean estado=false;
+        String resultado="";
+        
+        if(obj !=null)
+        {
+            stock=obj.getStock();
+            
+            if(stock==0)
+            {
+                estado=false;
+                resultado="El Stock de la materia prima esta en cero";
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+                
+            }
+            else if( stock < cantidad)
+            {
+                estado=false;
+                resultado="El Stock es menor que la cantidad solicitada Stock:" +  stock;
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+            }
+            else if(stock > cantidad)
+            {
+                estado=true;
+                resultado="Petición Aceptada";
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+            }
+        }else
+        
+                estado=false;
+                resultado="El producto no existe";
+                rest.setEstado(String.valueOf(estado));
+                rest.setResultado(resultado);
+                return rest;
+        
+       
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "fn_disminuir_stock_mp")
+    public String fn_disminuir_stock_mp(@WebParam(name = "ID") int ID, @WebParam(name = "cantidad") int cantidad) {
+        
+        float stock=0;
+        float nuevostock=0;
+        TbMateriaPrimaDaoImpl dao= new TbMateriaPrimaDaoImpl();
+        TbMateriaPrima obj=dao.findById(ID);
+    
+        if(obj !=null)
+        {
+            stock=obj.getStock();
+            nuevostock=stock - cantidad;
+            
+            obj.setStock(nuevostock);
+            dao.update(obj);
+            
+            return "Se desconto del Stock materia prima";
+            
+        }
+        
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "fn_aumentar_stock_mp")
+    public String fn_aumentar_stock_mp(@WebParam(name = "ID") int ID, @WebParam(name = "cantidad") int cantidad) {
+        float stock=0;
+        float nuevostock=0;
+        TbMateriaPrimaDaoImpl dao= new TbMateriaPrimaDaoImpl();
+        TbMateriaPrima obj=dao.findById(ID);
+    
+        if(obj !=null)
+        {
+            stock=obj.getStock();
+            nuevostock=stock + cantidad;
+            
+            obj.setStock(nuevostock);
+            dao.update(obj);
+            
+            return "Se auemto el stock materia prima";
+            
+        }
+        
+        return null;
+    }
+    
 }

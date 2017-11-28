@@ -8,6 +8,7 @@ package com.soapsoft.Service;
 import com.soapsoft.Dao.TbUbicacionDaoImpl;
 import com.soapsoft.Model.TbUbicacion;
 import java.util.Date;
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -115,4 +116,17 @@ public class SVR_UBICACION {
         
         
     }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "consultar_todos_ubicacion")
+    public List<TbUbicacion> consultar_todos_ubicacion() {
+          TbUbicacionDaoImpl dao=new TbUbicacionDaoImpl();  
+        
+         return dao.fn_consultar_todos_ub();
+    }
+
+    
 }

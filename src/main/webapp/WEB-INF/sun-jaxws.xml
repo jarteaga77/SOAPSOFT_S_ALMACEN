@@ -6,4 +6,6 @@
   <endpoint implementation="com.soapsoft.Service.SVR_ENTRADAMATERIAPRIMA" name="SVR_ENTRADAMATERIAPRIMA" url-pattern="/SVR_ENTRADAMATERIAPRIMA"/>
   <endpoint implementation="com.soapsoft.Service.SRV_DETALLESALIDAPRODTERM" name="SRV_DETALLESALIDAPRODTERM" url-pattern="/SRV_DETALLESALIDAPRODTERM"/>
   <endpoint implementation="com.soapsoft.Service.SVR_DETALLE_SALIDA_MATERIA_PRIMA" name="SVR_DETALLE_SALIDA_MATERIA_PRIMA" url-pattern="/SVR_DETALLE_SALIDA_MATERIA_PRIMA"/>
+  <endpoint implementation="com.soapsoft.Service.SRV_DETALLEENTRADAPRODTERM" name="SRV_DETALLEENTRADAPRODTERM" url-pattern="/SRV_DETALLEENTRADAPRODTERM"/>
+  <endpoint implementation="com.soapsoft.Service.SRV_ENTRADAPRODTERMINADO" name="SRV_ENTRADAPRODTERMINADO" url-pattern="/SRV_ENTRADAPRODTERMINADO"/>
 </endpoints>

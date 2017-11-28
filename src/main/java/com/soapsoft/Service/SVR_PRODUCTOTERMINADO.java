@@ -210,10 +210,7 @@ public class SVR_PRODUCTOTERMINADO {
         int stock=0;
         int nuevostock=0;
         TbProductoTerminadoDaoImpl dao= new TbProductoTerminadoDaoImpl();
-        TbProductoTerminado obj=dao.findById(ID);
-        
-        
-        
+        TbProductoTerminado obj=dao.findById(ID);      
         
         if(obj !=null)
         {
@@ -225,6 +222,26 @@ public class SVR_PRODUCTOTERMINADO {
             
             return "Stock Actualizado";
             
+        }
+        
+        return null;
+    }
+    
+    @WebMethod(operationName = "modificar_stocksumar_prod_terminado")
+    public String modificar_stocksumar_prod_terminado(@WebParam(name = "ID") int ID, @WebParam(name = "cantidad") int cantidad) {
+        
+        int stock=0;
+        int nuevostock=0;
+        TbProductoTerminadoDaoImpl dao= new TbProductoTerminadoDaoImpl();
+        TbProductoTerminado obj=dao.findById(ID);      
+        
+        if(obj !=null)
+        {
+            stock=obj.getStock();
+            nuevostock=stock + cantidad;            
+            obj.setStock(nuevostock);
+            dao.update(obj);            
+            return "Stock Actualizado";            
         }
         
         return null;

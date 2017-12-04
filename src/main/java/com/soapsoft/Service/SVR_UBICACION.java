@@ -20,19 +20,13 @@ import javax.jws.WebParam;
 @WebService(serviceName = "SVR_UBICACION")
 public class SVR_UBICACION {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
+  
 
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "fn_insertar")
-    public String fn_insertar(@WebParam(name = "descripcion") String descripcion, @WebParam(name = "creadoPor") String creadoPor) {
+    @WebMethod(operationName = "fn_insertar_ubicacion")
+    public String fn_insertar_ubicacion(@WebParam(name = "descripcion") String descripcion, @WebParam(name = "creadoPor") String creadoPor) {
         //TODO write your implementation code here:
         
         try
@@ -56,8 +50,8 @@ public class SVR_UBICACION {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "fn_eliminar")
-    public String fn_eliminar(@WebParam(name = "ID") int ID) {
+    @WebMethod(operationName = "fn_eliminar_ubicacion")
+    public String fn_eliminar_ubicacion(@WebParam(name = "ID") int ID) {
         //TODO write your implementation code here:
       try
       {
@@ -83,8 +77,8 @@ public class SVR_UBICACION {
         
     }
     
-     @WebMethod(operationName = "fn_modificar")
-    public String fn_modificar(@WebParam(name = "ID") int ID,@WebParam(name = "descripcion") String descripcion, @WebParam(name = "modificadoPor") String modificadoPor) {
+     @WebMethod(operationName = "fn_modificar_ubicacion")
+    public String fn_modificar_ubicacion(@WebParam(name = "ID") int ID,@WebParam(name = "descripcion") String descripcion, @WebParam(name = "modificadoPor") String modificadoPor) {
         //TODO write your implementation code here:
       try
       {

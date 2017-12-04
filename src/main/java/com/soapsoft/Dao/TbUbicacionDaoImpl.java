@@ -23,7 +23,7 @@ public class TbUbicacionDaoImpl extends GenericDaoImpl<TbUbicacion, Integer> imp
 
             try{ 
 
-                String query = "SELECT ID, descripcion FROM  tb_ubicacion ";
+                String query = "SELECT Id, descripcion as Descripcion FROM  tb_ubicacion ORDER BY Descripcion asc";
 
                 ArrayList<LlaveValor> parametros = new ArrayList<>();
 
